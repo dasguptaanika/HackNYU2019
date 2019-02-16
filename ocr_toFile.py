@@ -39,7 +39,8 @@ text = pytesseract.image_to_string(Image.open(filename))
 os.remove(filename)
 print(text)
 
-file = open("documents/TesseractOCR/output_python.txt","w") 
+file = open("documents/TesseractOCR/output_python.txt","w")
+text = text.encode("utf-8")
 file.write(text) 
 file.close() 
  
