@@ -21,7 +21,6 @@ def preprocess(sentence):
 
 paragraphs = split_paragraphs("test.txt") #Splits the text into topic based paragraphs
 processed_paragraphs = []
-tempp = paragraphs
 
 for paragraph in paragraphs:
     sentences = sent_tokenize(paragraph)
