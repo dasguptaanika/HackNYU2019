@@ -12,5 +12,5 @@ watson-developer-cloud==2.8.0
 regex==2018.1.10
 reportlab==3.5.13
 pytesseract==0.2.6
-opencv-python==4.0.0.21
+opencv-python==3.3.0.9
 Pillow==5.4.1
