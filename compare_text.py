@@ -3,11 +3,16 @@ from nltk.tokenize import sent_tokenize
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+import re
+
+#Remove unicode
+unicode_regex = re.compile(r"\\u\w\w\w\w")
+
 #Queue is needed for BFS, so not used
 #from queue import *
 
 #Constants for similarity
-SIM_CONST = 0.8 #contrived through exhaustive search (very suspicious :P)
+SIM_CONST = 0.77 #contrived through exhaustive search (very suspicious :P)
 SIM_CONST_AVG = 0.5 #Also contrived
 
 #dictionary to revert back to old sentences
@@ -75,6 +80,9 @@ def split_paragraphs(filename):
     with open(filename) as f:
         
         data = f.read()
+        data = unicode_regex.sub("", data)
+
+        #print(data)
 
         #list of sentences
         sent_tokenize_list = sent_tokenize(data)
@@ -191,3 +199,9 @@ def split_paragraphs(filename):
 if __name__ == "__main__":
     ret = split_paragraphs("test.txt")
     #print(ret)
+    
+
+    
+    
+
+    
