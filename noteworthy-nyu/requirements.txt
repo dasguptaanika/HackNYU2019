@@ -1,0 +1,16 @@
+Flask==0.10.1
+gunicorn==19.4.5
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+Werkzeug==0.11.4
+spacy==2.0.18
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz
+nltk==3.4
+gensim==3.7.1
+--upgrade "watson-developer-cloud>=2.5.1"
+regex==2018.1.10
+reportlab==3.5.13
+pytesseract==0.2.6
+opencv-python==4.0.0.21
+Pillow==5.4.1
