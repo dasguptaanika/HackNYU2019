@@ -1,5 +1,5 @@
 #Get module stuff
-from compare_text import *
+import compare_text, string
 from IBM_key_words import get_key_words, get_main_idea
 from text_evaluate import evaluate_text
 from bullet_point import bullet_point
