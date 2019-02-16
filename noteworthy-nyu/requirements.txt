@@ -8,7 +8,7 @@ spacy==2.0.18
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz
 nltk==3.4
 gensim==3.7.1
---upgrade "watson-developer-cloud>=2.5.1"
+watson-developer-cloud==2.8.0
 regex==2018.1.10
 reportlab==3.5.13
 pytesseract==0.2.6
