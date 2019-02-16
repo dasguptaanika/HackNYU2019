@@ -46,7 +46,7 @@ def prt_bullet(p):
 
         #Loop through key words
         for k in key_words:
-            if(k in all_keys):
+            if(k.lower() in all_keys):
                 #If the key word is repeated
                 k = k + "cont."
             #Add to second column
