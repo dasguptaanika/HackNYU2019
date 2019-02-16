@@ -64,11 +64,11 @@ def prt_bullet(p):
             tmp_sentence = p[i]
 
             #More preprocessing
-            current_sentence = preprocess(" ".join(normalize(tmp_sentence)))
+            current_sentence = compare_text.preprocess(" ".join(compare_text.normalize(tmp_sentence)))
             #Get the most relevant key word
             for k in key_words:
-                tmp_k = preprocess(" ".join(normalize(k)))
-                c_sim = cosine_sim(combine_lists(current_sentence), combine_lists(tmp_k))
+                tmp_k = compare_text.preprocess(" ".join(compare_text.normalize(k)))
+                c_sim = compare_text.cosine_sim(compare_text.combine_lists(current_sentence), compare_text.combine_lists(tmp_k))
                 if(c_sim > max_cos_sim):
                     max_cos_sim = c_sim
                     try:
