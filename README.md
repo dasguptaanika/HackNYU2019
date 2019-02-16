@@ -1,2 +1,2 @@
-# HackNYU2019
-Our hack for NYU
+# Noteworthy
+Our hack for HackNYU 2019
