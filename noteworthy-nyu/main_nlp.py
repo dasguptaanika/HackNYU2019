@@ -127,12 +127,7 @@ def main_nlp():
     #print(output_str.rstrip())
     print(output_str.rstrip())
 
-    with open("inter.txt", "w") as f:
+    with open("/tmp/notes.txt", "w") as f:
         f.write(output_str.rstrip())
 
-    textToPdf("inter.txt")
-    
-
-if __name__ == "__main__":
-    main_nlp()
-        
+    textToPdf("/tmp/notes.txt")

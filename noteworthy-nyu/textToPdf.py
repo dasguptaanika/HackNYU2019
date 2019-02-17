@@ -11,7 +11,7 @@ def textToPdf(filename):
     styleH = styles['Heading1']
     story = []
 
-    c = Canvas('output.pdf')
+    c = Canvas('/tmp/notes.pdf')
 
     buff = 0
 
@@ -61,8 +61,3 @@ def textToPdf(filename):
     f = Frame(inch, inch, 6.5*inch, 9.5*inch, showBoundary=0)
     f.addFromList(story,c)
     c.save()
-
-
-if __name__ == "__main__":
-    textToPdf("inter.txt")
-

@@ -1,5 +1,5 @@
 import os
-import ocrToFile, main, textToPdf
+import ocrToFile, selenium_OCR, textToPdf
 from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
@@ -22,8 +22,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             url_for('uploaded_file', filename=filename)
-            ocrToFile.toFile(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            main.main()
+            selenium_OCR.get_text()
             return('Notes can be found at https://noteworthy-nyu.herokuapp.com/tmp/notes.pdf')
     return 'Image not found'
 
