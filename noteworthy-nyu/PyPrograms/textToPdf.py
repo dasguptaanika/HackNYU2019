@@ -1,37 +1,45 @@
-#Import Modules
-from textwrap import TextWrapper
-from tkinter import Tk, Button, Text
 from reportlab.pdfgen.canvas import Canvas
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import inch
+from reportlab.platypus import Paragraph, Frame
+styles = getSampleStyleSheet()
+styleN = styles['BodyText']
+styleH = styles['Heading1']
+story = []
 
-#File to save to
-canvas = Canvas("/tmp/notes.pdf")
+c = Canvas('output.pdf')
 
-#Open and process files
-file = open("/tmp/notes.txt","r")
-text = file.read()
-textlines = text.split("\n")
-wrapper = TextWrapper()
-text_wrapped_lines = list()
-for line in textlines:
-    text_wrapped_lines += wrapper.wrap(line)
- 
-# Write the text to the pdf canvas
-count = 0
-text_object = canvas.beginText(60, 770)
- 
-for line in text_wrapped_lines:
-    text_object.textLine(line)
-    count += 1
+buff = 0
 
-    #If it goes over the page
-    if count == 48:
-       canvas.drawText(text_object)
-       canvas.showPage()
-       text_object = canvas.beginText(60, 770)
-       count = 0
- 
-canvas.drawText(text_object)
- 
-# Save the pdf file
-canvas.showPage()
-canvas.save()
+row1 = ""
+row2 = "                   "
+row3 = "                                      "
+
+def textToPdf(filename):
+
+    with open(filename, "r") as f:
+        data = f.read()
+
+    data = data.split("\n")
+
+    #add some flowables
+    for x in data:
+        if("         " in x):
+            story.append(Paragraph("<font size='10'>{}{}</font>".format(x.strip(), "\n"),styleN, bulletText = row3 + "•"))
+            story.append(Paragraph("<br></br>", styleN))
+        elif("   " in x):
+            story.append(Paragraph("<font size='11'>{}{}</font>".format(x.strip(), "\n"),styleN, bulletText = row2 + "•"))
+            story.append(Paragraph("<br></br>", styleN))
+        else:
+            story.append(Paragraph("<font size='12'>{}{}</font>".format(x.strip(), "\n"),styleN, bulletText = row1 + "•"))
+            story.append(Paragraph("<br></br>", styleN))
+        if(buff >= 25):
+            c.showPage()
+            buff = 0
+        else:
+            buff += 1
+        
+    f = Frame(inch, inch, 6.5*inch, 9.5*inch, showBoundary=0)
+    f.addFromList(story,c)
+    c.save()
+
