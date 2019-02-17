@@ -55,3 +55,7 @@ class bullet_point:
     
     def check_person(self, person):
         pass
+
+    def reset(self):
+        self.s_rank = []
+        self.t_rank = {}
