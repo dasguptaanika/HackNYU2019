@@ -1,5 +1,5 @@
 import os
-from PyPrograms import ocrToFile, main, textToPdf
+import ocrToFile, main, textToPdf
 from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
