@@ -11,7 +11,7 @@ import re
 #Remove unicode
 unicode_regex = re.compile(r"\\u\w\w\w\w")
 
-PATH = "C:\\Users\\Aaron\\Documents\\Coding practice\\Selenium_Scrape\\"
+PATH = ""
 
 image = cv2.imread(PATH + "img.jpg",0)
 image = cv2.GaussianBlur(image,(1,1),2)
