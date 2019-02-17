@@ -4,7 +4,6 @@ from reportlab.lib.units import inch
 from reportlab.platypus import Paragraph, Frame
 styles = getSampleStyleSheet()
 styleN = styles['BodyText']
-styleH = styles['Heading1']
 story = []
 
 c = Canvas('output.pdf')
