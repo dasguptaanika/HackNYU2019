@@ -92,7 +92,9 @@ def split_paragraphs(filename):
         for sentence in sent_tokenize_list:
              tmp = preprocess(" ".join(normalize(sentence)))
              o_stem[" ".join(tmp)] = sentence
-             processed_sentences.append(tmp)
+             if(len(tmp) != 0):
+                 processed_sentences.append(tmp)
+                 #print(tmp)
 
     #Output for error checking
         
